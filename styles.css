@@ -1,5 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: "Bagel Fat One";
+    font-family: "Bagel Fat One", sans-serif;
+    height: 100vh;
+    background-color: #fffceb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#gamezone-heading {
+    font-size: 10em;
+    margin-bottom: 0.5em;
+    color: #adac33;
+    text-shadow: 0.5rem 0.5rem 1rem #4f4b4b;
+    -webkit-text-stroke: 0.25rem #805b10;
+}
+
+#games-container {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+    padding: 0 16em;
+    height: 40vh;
+}
+
+.game-option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    padding: 1rem;
+    text-decoration: none;
+    border-radius: 1em;
+    transition: scale 1s ease;
+}
+
+.game-option:hover {
+    scale: 110%;
+}
+
+img {
+    width: 16em;
 }
