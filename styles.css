@@ -48,6 +48,12 @@ body {
     scale: 110%;
 }
 
+#game-title {
+    text-align: center;
+    color: #ee964b;
+    font-size: 4em;
+}
+
 img {
     width: 16em;
 }
