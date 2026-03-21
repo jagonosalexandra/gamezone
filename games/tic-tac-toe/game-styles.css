@@ -7,53 +7,54 @@
 }
 
 body {
-    font-family: "Bagel Fat One", sans-serif;
+    font-family: sans-serif;
     min-height: 100vh;
     background-color: #fffceb;
-    padding: 2em 1em;
+    padding-bottom: 1.25em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#game-controls {
+#game-nav {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 1em;
-    margin-bottom: 1.5em;
+    margin: 0 1.2em 0;
+    width: 100%;
+    height: 8vh;
+    -webkit-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.15);
+    padding: 1em 1.25em;
+    margin-bottom: 1.2em;
+}
+
+#game-title {
+    font-size: 2em;
+    color: #0d3b66;
 }
 
 .control {
     cursor: pointer;
-    border-radius: 100%;
-    width: 5em;
+    border: none;
+    width: 3em;
     aspect-ratio: 1 / 1;
     display: flex;
-    border: 0.5em solid #0d3b66;
     justify-content: center;
     align-items: center;
-    transition: 0.2s;
+    background: transparent;
 }
 
 .control img {
-    width: 3em;
+    width: 2em;
     height: auto;
-}
-
-.control:hover {
-    background-color: #0d3b66;
-    transform: scale(1.1);
-}
-
-#game-title {
-    text-align: center;
-    font-size: 5em;
-    color: #f4d35e;
-    -webkit-text-stroke: 2px #0d3b66;
 }
 
 #game-board {
     margin: 0 auto;
-    width: 400px; 
-    height: 400px;
+    width: 35rem; 
+    height: 35rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
