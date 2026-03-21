@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    min-height: 100vh;
+    background-color: #fffceb;
+    padding-bottom: 1.25em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    margin: 0 1.2em 0;
+    width: 100%;
+    height: 8vh;
+    -webkit-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.15);
+    padding: 1em 1.25em;
+    margin-bottom: 1.2em;
+}
+
+#game-title {
+    font-size: 2em;
+    color: #0d3b66;
+}
+
+.control {
+    cursor: pointer;
+    border: none;
+    width: 3em;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.control img {
+    width: 2em;
+    height: auto;
+}
+
+#message {
+    min-height: 2em;
+    text-align: center;
+    font-size: 1.1em;
+    color: #0d3b66;
+    background: #f4d35e;
+    border: 2px solid #0d3b66;
+    border-radius: 2em;
+    padding: 0.3em 1.2em;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    margin-bottom: 0.6em;
+}
+ 
+#message.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#game-board {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0 auto 1em;
+}
+
+.board-row {
+    display: flex;
+    gap: 6px;
+}
+
+.cell {
+    width: 2.5em;
+    height: 2.5em;
+    border: 2.5px solid #f4d35e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #0d3b66;
+    background: #fff;
+    transition: border-color 0.1s;
+    user-select: none;
+}
+
+.cell.filled {
+    border-color: #0d3b66;
+    animation: pop 0.1s ease;
+}
+
+.cell.correct {
+    background: #538d4e;
+    color: white;
+    border-color: #538d4e
+}
+
+.cell.semi-correct {
+    background: #b59f3b;
+    color: white;
+    border-color: #b59f3b;
+}
+
+.cell.incorrect {
+    background: #3a3a3c;
+    color: white;
+    border-color: #3a3a3c;
+}
+
+#guess-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    max-width: 500px;
+}
+
+#guess-input .row {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.letter-button {
+    background: #d3d6da;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    min-height: 4em;
+    min-width: 3.5em;
+    padding: 0 0.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0d3b66;
+    transition: background-color 0.2s, transform 0.1s;
+    user-select: none;
+}
+
+.letter-button.wide-key {
+    min-width: 8em;
+    font-size: 1em;
+}
+
+.letter-button:hover {
+    background: #b8bbbf;
+    transform: scale(1.05);
+}
+
+.letter-button:active {
+    transform: scale(0.95);
+}
+
+.letter-button[data-status="correct"] {
+    background: #538d4e;
+    color: white;
+}
+
+.letter-button[data-status="semi-correct"] {
+    background: #b59f3b;
+    color: white;
+}
+
+.letter-button[data-status="incorrect"] {
+    background: #3a3a3c;
+    color: #888;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cell.flip {
+    animation: flip 0.3s ease forwards;
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    50% {
+        transform: rotateX(-90deg);
+    }
+
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%       { transform: translateX(-6px); }
+    40%       { transform: translateX(6px); }
+    60%       { transform: translateX(-4px); }
+    80%       { transform: translateX(4px); }
+}
+ 
+.cell.shake {
+    animation: shake 0.4s ease;
+}
+ 
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    40%       { transform: translateY(-16px); }
+    60%       { transform: translateY(-8px); }
+}
+ 
+.cell.bounce {
+    animation: bounce 0.5s ease;
+}
+
+@media (max-width: 400px) {
+    .cell {
+        width: 52px;
+        height: 52px;
+        font-size: 1.6em;
+    }
+
+    .letter-button {
+        height: 3em;
+        min-width: 2.1em;
+        font-size: 0.75em;
+    }
+
+    .letter-button.wide-key {
+        min-width: 3.5em;
+    }
+
+    #game-title {
+        font-size: 3em;
+    }
+}
