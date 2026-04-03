@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bytesized&display=swap');
 
 * {
     margin: 0;
@@ -7,9 +7,13 @@
 }
 
 body {
-    font-family: "Bagel Fat One", sans-serif;
+    font-family: Bytesized, sans-serif;
     height: 100vh;
-    background-color: #fffceb;
+    background: url('./images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,19 +21,20 @@ body {
 }
 
 #gamezone-heading {
-    font-size: 10em;
-    margin-bottom: 0.5em;
-    color: #adac33;
-    text-shadow: 0.5rem 0.5rem 1rem #4f4b4b;
-    -webkit-text-stroke: 0.25rem #805b10;
+    font-size: 14rem;
+    color: #fcdd05;
+    text-shadow: 0.5rem 0.5rem 8rem #fefe0080;
+    -webkit-text-stroke: 1px #dd790f;
 }
 
 #games-container {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 3em;
-    padding: 0 16em;
-    height: 40vh;
+    padding: 1em;
+    width: 100%;
+    max-width: 70vw;
 }
 
 .game-option {
@@ -38,22 +43,29 @@ body {
     justify-content: center;
     align-items: center;
     gap: 0.5em;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
+    width: 20vw;
     text-decoration: none;
     border-radius: 1em;
     transition: scale 1s ease;
 }
 
-.game-option:hover {
-    scale: 110%;
-}
-
-#game-title {
-    text-align: center;
-    color: #ee964b;
-    font-size: 4em;
+.game-option:hover,
+.game-option:focus {
+    scale: 1.05;
+    background-color: #fcdd05;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: none;
+    outline: none;
 }
 
 img {
-    width: 16em;
+    width: 100%;
+    max-width: 16em;
+}
+
+.game-title {
+    font-size: 1.5rem;
+    color: #dd790f;
+    text-align: center;
 }
