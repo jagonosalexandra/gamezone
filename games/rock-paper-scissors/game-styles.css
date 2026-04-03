@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    min-height: 100vh;
+    background-color: #fffceb;
+    padding-bottom: 1.25em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    margin: 0 1.2em 0;
+    width: 100%;
+    height: 8vh;
+    -webkit-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.15);
+    padding: 1em 1.25em;
+    margin-bottom: 1.2em;
+}
+
+#game-title {
+    font-size: 2em;
+    color: #0d3b66;
+}
+
+.control {
+    cursor: pointer;
+    border: none;
+    width: 3em;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.control img {
+    width: 3em;
+    height: auto;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0 2em;
+}
+
+.choice {
+    background: none;
+    border: none;
+    object-fit: contain;
+    margin: 2em 2.5em 4em;
+    cursor: pointer;
+}
+
+.choice img {
+    width: 100%;
+    max-width: 16em;
+    transition: transform 0.2s;
+}
+
+.choice:hover img {
+    transform: translateY(-10px);
+}
+
+.choice:active {
+    scale: 90%;
+}
+
+#player-display,
+#computer-display {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+}
+
+#result-display {
+    font-size: 5rem;
+    margin: 0.5em 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.score-display {
+    font-size: 1.5em;
+    margin-left: auto;
+}
+
+.green-text {
+    color: #538853;
+}
+
+.red-text {
+    color: #ff6347;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors!</title>
+    <link rel="stylesheet" href="./game-styles.css">
+</head>
+</head>
+
+<body>
+    <div id="game-nav">
+        <button type="button" class="control" id="homeButton" value="Home" onclick="returnButton()">
+            <img src="../../images/home.png" alt="Home button" />
+        </button>
+        <h1 id="game-title">ROCK PAPER SCISSORS!</h1>
+        <button type="button" class="control" id="restartButton" value="Restart" onclick="restartButton()">
+            <img src="../../images/restart.png" alt="Restart button" />
+        </button>
+    </div>
+
+    <div id="game-container">
+        <div class="score-display">Score:
+            <span id="score-display">0</span>
+        </div>
+
+        <div class="choices">
+            <button class="choice" onclick="playGame('rock')">
+                <img src="./images/rock.png" alt="rock">
+            </button>
+            <button class="choice" onclick="playGame('paper')">
+                <img src="./images/paper.png" alt="paper">
+            </button>
+            <button class="choice" onclick="playGame('scissors')">
+                <img src="./images/scissors.png" alt="scissors">
+            </button>
+        </div>
+
+        <div class="hidden" id="player-display">
+            PLAYER:
+        </div>
+        <div class="hidden" id="computer-display">
+            COMPUTER:
+        </div>
+        <div class="hidden" id="result-display">
+            IT'S A TIE!
+        </div>
+    </div>
+
+    <script src="./game.js"></script>
+</body>
+
+</html>
