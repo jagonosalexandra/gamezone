@@ -11,24 +11,28 @@
 <body>
     <div id="game-nav">
         <button type="button" class="control" id="homeButton" value="Home" onclick="returnButton()">
-            <img src="../../images/home.svg" alt="Home button" />
+            <img src="../../images/home.png" alt="Home button" />
         </button>
         <h1 id="game-title">TIC TAC TOE</h1>
         <button type="button" class="control" id="restartButton" value="Restart" onclick="restartButton()">
-            <img src="../../images/restart.svg" alt="Restart button" />
+            <img src="../../images/restart.png" alt="Restart button" />
         </button>
     </div>
 
-    <div id="game-board">
-        <div class="square" id="square0"></div>
-        <div class="square" id="square1"></div>
-        <div class="square" id="square2"></div>
-        <div class="square" id="square3"></div>
-        <div class="square" id="square4"></div>
-        <div class="square" id="square5"></div>
-        <div class="square" id="square6"></div>
-        <div class="square" id="square7"></div>
-        <div class="square" id="square8"></div>
+    <div id="game-container">
+        <div id="game-board" role="grid">
+            <div class="square" id="square0" role="gridcell" aria-label="Square 0"></div>
+            <div class="square" id="square1" role="gridcell" aria-label="Square 1"></div>
+            <div class="square" id="square2" role="gridcell" aria-label="Square 2"></div>
+            <div class="square" id="square3" role="gridcell" aria-label="Square 3"></div>
+            <div class="square" id="square4" role="gridcell" aria-label="Square 4"></div>
+            <div class="square" id="square5" role="gridcell" aria-label="Square 5"></div>
+            <div class="square" id="square6" role="gridcell" aria-label="Square 6"></div>
+            <div class="square" id="square7" role="gridcell" aria-label="Square 7"></div>
+            <div class="square" id="square8" role="gridcell" aria-label="Square 8"></div>
+        </div>
+
+        <p id="message">X's turn!</p>
     </div>
 
     <script src="game.js"></script>

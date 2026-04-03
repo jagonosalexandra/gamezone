@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bytesized&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: inherit;
 }
 
 body {
-    font-family: sans-serif;
+    font-family: Bytesized, sans-serif;
     min-height: 100vh;
-    background-color: #fffceb;
-    padding-bottom: 1.25em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #bfebf4;
 }
 
 #game-nav {
@@ -24,15 +24,13 @@ body {
     margin: 0 1.2em 0;
     width: 100%;
     height: 8vh;
-    -webkit-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.15);
-    padding: 1em 1.25em;
-    margin-bottom: 1.2em;
+    background-color: #221442;
+    border-bottom: 0.25rem solid #bfebf4;
+    padding: 2em 1.25em;
 }
 
 #game-title {
-    font-size: 2em;
-    color: #0d3b66;
+    font-size: 4em;
 }
 
 .control {
@@ -47,24 +45,38 @@ body {
 }
 
 .control img {
-    width: 2em;
+    width: 3em;
     height: auto;
+}
+
+#game-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5em 2em;
+    background: url('../../images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #message {
     min-height: 2em;
     text-align: center;
     font-size: 1.1em;
-    color: #0d3b66;
+    color: #221442;
     background: #f4d35e;
-    border: 2px solid #0d3b66;
+    border: 2px solid #221442;
     border-radius: 2em;
     padding: 0.3em 1.2em;
     opacity: 0;
     transform: translateY(-6px);
     transition: opacity 0.25s ease, transform 0.25s ease;
     pointer-events: none;
-    margin-bottom: 0.6em;
 }
  
 #message.visible {
@@ -76,7 +88,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin: 0 auto 1em;
 }
 
 .board-row {
@@ -85,8 +96,8 @@ body {
 }
 
 .cell {
-    width: 2.5em;
-    height: 2.5em;
+    width: 2em;
+    aspect-ratio: 1/1;
     border: 2.5px solid #f4d35e;
     display: flex;
     justify-content: center;
@@ -143,22 +154,22 @@ body {
     border: none;
     border-radius: 0.25em;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: 700;
-    min-height: 4em;
-    min-width: 3.5em;
-    padding: 0 0.3em;
+    min-height: 1.5em;
+    min-width: 2.5em;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #0d3b66;
     transition: background-color 0.2s, transform 0.1s;
     user-select: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .letter-button.wide-key {
-    min-width: 8em;
-    font-size: 1em;
+    min-width: 5em;
 }
 
 .letter-button:hover {

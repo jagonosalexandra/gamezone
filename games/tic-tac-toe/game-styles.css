@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bytesized&display=swap');
 
 * {
     margin: 0;
@@ -7,13 +7,12 @@
 }
 
 body {
-    font-family: sans-serif;
+    font-family: Bytesized, sans-serif;
     min-height: 100vh;
-    background-color: #fffceb;
-    padding-bottom: 1.25em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #bfebf4;
 }
 
 #game-nav {
@@ -24,15 +23,13 @@ body {
     margin: 0 1.2em 0;
     width: 100%;
     height: 8vh;
-    -webkit-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.15);
-    padding: 1em 1.25em;
-    margin-bottom: 1.2em;
+    background-color: #221442;
+    border-bottom: 0.25rem solid #bfebf4;
+    padding: 2em 1.25em;
 }
 
 #game-title {
-    font-size: 2em;
-    color: #0d3b66;
+    font-size: 4em;
 }
 
 .control {
@@ -47,22 +44,42 @@ body {
 }
 
 .control img {
-    width: 2em;
+    width: 3em;
     height: auto;
 }
 
+#game-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5em 2em;
+    background: url('../../images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#message {
+    margin: 1rem 0;
+    font-size: 3rem;
+}
+
 #game-board {
-    margin: 0 auto;
-    width: 35rem; 
-    height: 35rem;
+    width: 90%;
+    max-width: 500px;
+    aspect-ratio: 1/1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    grid-gap: 0.8rem;
+    grid-gap: 0.75rem;
 }
 
 .square {
-    border: 0.2rem solid #f95738;
+    border: 0.2rem solid #dd790f;
     background-color: #f4d35e;
     border-radius: 1em;
     display: flex;
@@ -80,15 +97,17 @@ body {
 }
 
 .square:not(.taken):hover {
-    border-color: #0d3b66;
+    border-color: #bfebf4;
 }
 
 .square.taken {
-    background-color: #f4d35e8A;
+    background-color: #fcdd05;
+    cursor: not-allowed;
 }
 
 .winner {
-    background-color: #f95738 !important;
+    background-color: #1f762e !important;
+    border: none;
     animation: pulse 1s infinite;
 }
 
@@ -96,9 +115,4 @@ body {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
-}
-
-h2 {
-    color: #0d3b66;
-    font-size: 2em;
 }

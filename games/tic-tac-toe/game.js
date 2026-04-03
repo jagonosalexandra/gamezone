@@ -1,13 +1,9 @@
-const board = document.getElementById('game-board');
-const squares = document.getElementsByClassName('square');
+const board = document.getElementById("game-board");
+const squares = document.getElementsByClassName("square");
 const players = ['X', 'O'];
 let currentPlayer = players[0];
 
-const endMessage = document.createElement('h2');
-endMessage.textContent = `X's turn!`;
-endMessage.style.marginTop = '1em'; 
-endMessage.style.textAlign = 'center';
-board.after(endMessage);
+const message = document.getElementById("message");
 
 const winning_combinations = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], 
@@ -22,7 +18,7 @@ const imgPaths = {
 
 for (let i = 0; i < squares.length; i++) {
     squares[i].addEventListener('click', () => {
-        if (squares[i].innerHTML !== '' || endMessage.textContent.includes('wins')) {
+        if (squares[i].dataset.player || message.textContent.includes('wins')) {
             return;
         }
 
@@ -35,18 +31,18 @@ for (let i = 0; i < squares.length; i++) {
         squares[i].dataset.player = currentPlayer;
 
         if (checkWin(currentPlayer)) {
-            endMessage.textContent = `Game over! ${currentPlayer} wins!`;
+            message.textContent = `Game over! ${currentPlayer} wins!`;
             highlightWin(); 
             return;
         }
         
         if (checkTie()) {
-            endMessage.textContent = `Game is tied!`;
+            message.textContent = `Game is tied!`;
             return;
         }
 
         currentPlayer = (currentPlayer === players[0] ? players[1] : players[0]);
-        endMessage.textContent = `${currentPlayer}'s turn!`;
+        message.textContent = `${currentPlayer}'s turn!`;
     });
 }
 
@@ -83,7 +79,7 @@ function restartButton() {
         delete squares[i].dataset.player;
     }
     currentPlayer = players[0];
-    endMessage.textContent = `X's turn!`;
+    message.textContent = `X's turn!`;
 }
 
 function returnButton() {
